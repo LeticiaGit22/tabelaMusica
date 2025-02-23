@@ -13,7 +13,7 @@
     </header>
 
     <nav>
-        <ul class="MENU">
+        <ul class="menu">
             <li><a href="tabela.html">Cadastro</a></li>
             <li><a href="desenvolvedores.html">Desenvolvedores</a></li>
             
@@ -46,15 +46,15 @@
                     </div>
                     <!-- Botões -->
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary" onclick="adicionarMusica()">GRAVAR</button>
+                    <button type="button" class="btn btn-dark" onclick="adicionarMusica()">GRAVAR</button>
                 </div>
                 </fieldset>     
     </section>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-    <table class="table text-center table-striped table-houver table-bordered shadow-sm">
-        <caption class="font-weight-bold mb-3"> Músicas</caption>
+    <table id="tabelaMusicas" class="table  table-striped table-houver table-bordered shadow-sm">
+        <caption-top class="text-center font-weight-bold mb-3" style="font-size: 2rem;">TABELA DE MÚSICAS</caption>
         <thead class="table-dark">
             <tr class="text-start text-center">
                 <th>NOME</th>
@@ -67,13 +67,13 @@
             <tr class="text-start">
                 <td>Máquina do tempo</td>
                 <td>Matuê</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>Cera</td>
                 <td>O surto</td>
-                <td>rock</td>
+                <td>Rock</td>
             </tr>
 
             <tr class="text-start">
@@ -85,43 +85,43 @@
             <tr class="text-start">
                 <td>Justin Bieber</td>
                 <td>Baby</td>
-                <td>teen pop</td>
+                <td>Teen Pop</td>
             </tr>
 
             <tr class="text-start">
                 <td>Coração de Gelo</td>
                 <td>WIU</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>Kenny G</td>
                 <td>Matuê</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>Novo Balanço</td>
                 <td>Veigh</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>A morte do Autotune</td>
                 <td>Matuê</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>Horas Iguais</td>
                 <td>Oruam</td>
-                <td>trap</td>
+                <td>Trap</td>
             </tr>
 
             <tr class="text-start">
                 <td>Cheia de Manias</td>
                 <td>Raça Negra</td>
-                <td>pagode romântico</td>
+                <td>Pagode Romântico</td>
             </tr>
 
 
@@ -138,32 +138,35 @@
 </div>
 <script>
     function adicionarMusica() {
-        // Obtendo os dados do formulário
+        // Pegando os valores dos inputs
         var nome = document.getElementById("nome").value;
         var artista = document.getElementById("artista").value;
         var genero = document.getElementById("genero").value;
 
-
-        // Verificando se os campos estão preenchidos
-        if (nome && artista && genero) {
-            // Criando nova linha na tabela
-            var tabela = document.getElementById("musicasTable").getElementsByTagName("tbody")[0];
-            var novaLinha = tabela.insertRow();
-
-            // Criando as células para a nova linha
-            var celulaNome = novaLinha.insertCell(0);
-            var celulaArtista = novaLinha.insertCell(1);
-
-            // Adicionando os dados nas células
-            celulaNome.textContent = nome;
-            celulaArtista.textContent = artista;
-
-            // Limpando os campos do formulário
-            document.getElementById("nome").value = "";
-            document.getElementById("artista").value = "";
-        } else {
-            alert("Por favor, preencha todos os campos.");
+        // Verificar se todos os campos foram preenchidos
+        if (nome === "" || artista === "" || genero === "") {
+            alert("Por favor, preencha todos os campos!");
+            return;
         }
+
+        // Criando uma nova linha na tabela
+        var tabela = document.getElementById("tabelaMusicas").getElementsByTagName('tbody')[0];
+        var novaLinha = tabela.insertRow();
+
+        // Criando células na nova linha e inserindo os valores
+        var celulaNome = novaLinha.insertCell(0);
+        celulaNome.textContent = nome;
+
+        var celulaArtista = novaLinha.insertCell(1);
+        celulaArtista.textContent = artista;
+
+        var celulaGenero = novaLinha.insertCell(2);
+        celulaGenero.textContent = genero;
+
+        // Limpando os campos de input após adicionar
+        document.getElementById("nome").value = "";
+        document.getElementById("artista").value = "";
+        document.getElementById("genero").value = "";
     }
 </script>
 
