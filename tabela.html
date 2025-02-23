@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="tabela.css">
+    <title>Cadastre sua música</title>
+</head>
+<body>
+    <header>
+        <h1> SUA MÚSICA</h1>
+    </header>
+
+    <nav>
+        <ul class="MENU">
+            <li><a href="tabela.html">Cadastro</a></li>
+            <li><a href="desenvolvedores.html">Desenvolvedores</a></li>
+            
+            
+        </ul>
+    </nav>
+
+    <section class="forms-container">
+        <div class="container">
+            
+                <h1>Cadastre sua música</h1>
+                <p>preencha os dados de sua música</p>
+
+                <!-- Dados do Tutor -->
+                <fieldset>
+                    <legend>Dados</legend>
+                    <div class="grupo">
+                        <label for="nome">Nome da música:</label>
+                        <input type="text" id="nome" class="controle" name="nome" required>
+                    </div>
+
+                    <div class="grupo">
+                        <label for="nomeArtista">Nome do artista</label>
+                        <input type="text" id="artista" class="controle" name="nomeArtista" required>
+                    </div>
+
+                    <div class="grupo">
+                        <label for="genero">Gênero da música</label>
+                        <input type="text" id="genero" class="controle" name="genero" required>
+                    </div>
+                    <!-- Botões -->
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" onclick="adicionarMusica()">GRAVAR</button>
+                </div>
+                </fieldset>     
+    </section>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+    <table class="table text-center table-striped table-houver table-bordered shadow-sm">
+        <caption class="font-weight-bold mb-3"> Músicas</caption>
+        <thead class="table-dark">
+            <tr class="text-start text-center">
+                <th>NOME</th>
+                <th>ARTISTA</th>
+                <th>GÊNERO</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-start">
+                <td>Máquina do tempo</td>
+                <td>Matuê</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Cera</td>
+                <td>O surto</td>
+                <td>rock</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>FBC & VHOOR ft. Djair Voz Cristalina</td>
+                <td>Delírios</td>
+                <td>Hip-Hop/rap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Justin Bieber</td>
+                <td>Baby</td>
+                <td>teen pop</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Coração de Gelo</td>
+                <td>WIU</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Kenny G</td>
+                <td>Matuê</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Novo Balanço</td>
+                <td>Veigh</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>A morte do Autotune</td>
+                <td>Matuê</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Horas Iguais</td>
+                <td>Oruam</td>
+                <td>trap</td>
+            </tr>
+
+            <tr class="text-start">
+                <td>Cheia de Manias</td>
+                <td>Raça Negra</td>
+                <td>pagode romântico</td>
+            </tr>
+
+
+        </tbody>
+        <tfoot class="pt-4 my-5 border-top">
+            <tr>
+                <td colspan="3">
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+</div>
+<script>
+    function adicionarMusica() {
+        // Obtendo os dados do formulário
+        var nome = document.getElementById("nome").value;
+        var artista = document.getElementById("artista").value;
+        var genero = document.getElementById("genero").value;
+
+
+        // Verificando se os campos estão preenchidos
+        if (nome && artista && genero) {
+            // Criando nova linha na tabela
+            var tabela = document.getElementById("musicasTable").getElementsByTagName("tbody")[0];
+            var novaLinha = tabela.insertRow();
+
+            // Criando as células para a nova linha
+            var celulaNome = novaLinha.insertCell(0);
+            var celulaArtista = novaLinha.insertCell(1);
+
+            // Adicionando os dados nas células
+            celulaNome.textContent = nome;
+            celulaArtista.textContent = artista;
+
+            // Limpando os campos do formulário
+            document.getElementById("nome").value = "";
+            document.getElementById("artista").value = "";
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    }
+</script>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>IFRN campus Santa Cruz | Trabalho de Autoria Web | Prof. Marcelo Figueiredo Barbosa Júnior</p>
+        <p>Desenvolvido por: Alexsandra Roberta Confessor Silva e Letícia Lorrany Carvalho Maia</p>
+        <p>Referência: <a href="https://www.youtube.com/watch?v=wwqOJ2o84S4&t=365s" target="_blank">Vídeo no YouTube - FORMULÁRIOS COM HTML e CSS!
+        </a></p>
+        <p>Referência: <a href="https://www.youtube.com/watch?v=1prWS9IpZLU&t=1027s" target="_blank">Vídeo no YouTube - Obtendo dados de formulários com PHP (parte 2) </a>
+        </a></p>
+        <p>Referência: <a href="https://youtu.be/oMkXAl4NYL0?si=3UJo7kmYDI3mAbLA" target="_blank">Vídeo no youtube - curso de bootstrap - tabelas
+        </a></p>
+    </footer>
+</body>
+</html>
